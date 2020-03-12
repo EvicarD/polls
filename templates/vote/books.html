@@ -1,0 +1,20 @@
+{% block content %}
+    {% if books %}
+        {% for book in books %}
+            <ul>
+                <li><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></li>
+                <li>{{ book.authors }}</li>
+                <li>{{ book.publisher }}</li>
+                <li>{{ book.publication_date }}</li>
+            </ul>
+            <div class="row">
+                {% include 'vote/add.html' %}
+            </div>
+            {% for comment in comments %}
+                {{ comment }}
+            {% endfor %}
+        {% endfor %}
+    {% else %}
+        <div class="display-1">nothing found</div>
+    {% endif %}
+{% endblock %}

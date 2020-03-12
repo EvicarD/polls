@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if objects %}
+        {% for pub in objects %}
+            <ul>
+                <li><a href="{{ pub.get_absolute_url }}">{{ pub.name }}</a></li>
+                <li>{{ pub.country }}</li>
+            </ul>
+        {% endfor %}
+    {% else %}
+        <div class="display-1">nothing found</div>
+    {% endif %}
+{% endblock %}
